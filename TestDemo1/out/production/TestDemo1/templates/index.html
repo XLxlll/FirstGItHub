@@ -1,0 +1,16 @@
+<!DOCTYPE html >
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8"/>
+    <title>首页</title>
+</head>
+<body>
+<a href="listAll.html" th:href="@{/listAll}">list All</a>
+<br/>
+<a  th:href="@{/testResponseBody}">Test ResponseBody</a>
+<br/>
+<label th:text="${time}"/>
+<br/>
+静态资源：<img src="#" th:src="maomao.jpg"/>
+</body>
+</html>

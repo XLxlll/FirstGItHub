@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"  />
+    <title>Title</title>
+    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".delete").click(function () {
+                var href = $(this).attr("href");
+                $("form").attr("action",href).submit();
+                alert("是否删除！");
+                return false;
+            });
+        })
+    </script>
+</head>
+<body>
+<form action="" method="post">
+    <input type="hidden" name="_method" value="DELETE"/>
+<table border="1" cellpadding="10" cellspacing="0" >
+    <tr>
+        <td>ID</td>
+        <td>LastName</td>
+        <td>Email</td>
+        <td>Gender</td>
+        <td>Department</td>
+        <td>Edit</td>
+        <td>Delete</td>
+    </tr>
+    <tr  th:each="employee:${employees}" >
+        <td th:text="${employee.id}">ID</td>
+        <td th:text="${employee.lastName}">lastName</td>
+        <td th:text="${employee.email}">email</td>
+        <td th:text="${employee.lastName}">lastName</td>
+        <td th:text="${employee.department.departmentName}">departmentName</td>
+        <td ><a href="Edit" >Edit</a> </td>
+        <td><a class="delete" href="Delete" th:href="@{/delete(id=${employee.id})}">DELETE</a> </td>
+    </tr>
+    <tr >
+    <td th:colspan="7" th:text="${message}"></td>
+    </tr>
+</table>
+    </form>
+<a href="input.html">1234567</a>
+<br/>
+<br/>
+<label th:text="${name}">123</label>
+<label th:text="${title}">456</label>
+<br/>
+<label th:text="${result}">456</label>
+
+</body>
+</html>
